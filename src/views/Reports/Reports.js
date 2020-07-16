@@ -6,6 +6,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from "@material-ui/core/InputLabel";
 import TextField from '@material-ui/core/TextField'
 import Search from "@material-ui/icons/Search";
+import { Checkbox } from '@material-ui/core';
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -47,7 +48,7 @@ function Reports(props) {
   const { user_type } = props
   const classes = useStyles();
 
-  const [_tableHeadings, setTableHeadings] = React.useState(user_type === "manager" ? ["Name", "Admin ID", "Amount"] : ["Name", "Employee ID", "Workstation", "Amount"])
+  const [_tableHeadings, setTableHeadings] = React.useState(user_type === "manager" ? ["Name", "Admin ID", "Amount"] : ["Name", "Employee ID", "Workstation", 'Amount'])
   const [_reportType, setReportType] = React.useState(user_type === "manager" ? "admin_transactions" : "employee_transactions")
   const [_reportResults, setReportResults] = React.useState([])
 
@@ -79,7 +80,7 @@ function Reports(props) {
             var workstation = it.workstation
             var name = it.name
             var amount = it.amount
-            return [name, employee_id, workstation, amount, <Button color="warning" onClick={employeePayHandler(name, employee_id, amount)}>Pay</Button>]
+            return [name, employee_id, workstation, amount, <Button color="warning" onClick={employeePayHandler(name, employee_id, amount)}>Recieve</Button>]
           })
           // console.log(results)
           setReportResults(results)
@@ -128,7 +129,7 @@ function Reports(props) {
     setReportType(event.target.value)
     switch (event.target.value) {
       case 'employee_transactions':
-        setTableHeadings(["Name", "Employee ID", "Workstation", "Amount"]);
+      setTableHeadings(["Name", "Employee ID", "Workstation", 'Amount']);
         break;
       case 'admin_transactions':
         setTableHeadings(["Name", "Admin ID", "Amount"]);
