@@ -11,7 +11,7 @@
 ## Installation
 
 1. Clone or download the source
-2. run `npm install react-scripts` from project directory
+2. run `npm install --save react-scripts` from project directory
 3. run `npm install` from project directory
 
 ## Building and running
